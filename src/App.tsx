@@ -3,10 +3,9 @@ import React from 'react'
 
 function App() {
   const handleClick = async () => {
-    // console.log('Calling Server')
     try {
-      const response = await fetch('http://localhost:3001/');
-      const message = response.json();
+      const response = await fetch('/api/test');
+      const message = await response.json();
       console.log(message)
     } catch (error) {
       console.error(error);
