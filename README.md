@@ -2,10 +2,32 @@
 
 MVP Features
 1. Create Lobby for PUSH THE BUTTON
+    - Create '+' button
+    - Create container to hold sessions
 2. Allow users to create a session of PUSH THE BUTTON
-    - Assign the user a unique id
-4. Allow users to join a session
-    - Assign the user a unique id
+    a. Front End
+        - Add react-router
+        - Create modal for session creation
+        - Create list of session instances
+        - Create refresh and '+' buttons
+        - Create game view
+            - Display game button
+            - Display leave button
+    b. Back End - Create end points
+        - INIT: Create 'push the button sessions' table in database (title, unique id, open)
+        - POST: Insert session with unique id into database
+        - GET: Get all 'open' sessions to display on lobby page
+        - UPDATE: On player leave, game completion, etc., update session 'open' to false
+    c. Bringing it all together
+        - In lobby: getOpenSessions() and display
+        - '+' button: createGame() to insert into session table, take user to game view
+        - In game view, leave button: leaveGame() updates session table and takes user back to lobby
+        - Refresh button: call getOpenSessions() and update display
+3. Allow users to join a session - Socket.IO
+    - Assign player 1 to creator
+    - Assign player 2 to joinee
+    - Close session on user leave
+    - Refresh 
 4. Users can play PUSH THE BUTTON and win/lose
 5. Create Home Page for different game lobbies
 6. Add game TIC TAC TOE
